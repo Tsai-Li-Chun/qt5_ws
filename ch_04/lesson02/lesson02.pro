@@ -4,7 +4,7 @@
 
 QT += gui widgets
 TEMPLATE = app
-TARGET = LineEdit_Label
+TARGET = ../Signal_Slot_test
 INCLUDEPATH += . ../inc/
 
 # The following define makes your compiler warn you if you use any

@@ -63,10 +63,10 @@ int main(int argc, char **argv)
 	QApplication qt(argc,argv);
 
 	/* 建立main用qt-top物件 */
-	std::shared_ptr<LineEdit_Label> LL 
-		= std::make_shared<LineEdit_Label>();
+	std::shared_ptr<Signal_Slot_test> SSt 
+		= std::make_shared<Signal_Slot_test>();
 	/* 顯示視窗 */
-	LL->show();
+	SSt->show();
 
     /* 執行qt應用並顯示執行結果 */
 	std::cout << qt.exec() << std::endl;

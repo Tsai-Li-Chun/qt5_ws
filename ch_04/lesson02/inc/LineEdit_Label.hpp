@@ -33,7 +33,7 @@
 /* Extern Class Begin */
 
 /* main用qt-top物件 */
-class LineEdit_Label : public QWidget, public Ui::Form
+class Signal_Slot_test : public QWidget, public Ui::Form
 {
 	/* 引用qt-MateObject(管控物件)宣告 */
 	Q_OBJECT
@@ -43,13 +43,16 @@ private:
 /* 公共成員 */
 public:
 	/* 建構函數 */
-	LineEdit_Label(QWidget *parent = 0);
+	Signal_Slot_test(QWidget *parent = 0);
 	/* 解建構函數 */
-	~LineEdit_Label();
+	~Signal_Slot_test();
 	
 /* qt特有,slot成員 */
 public slots:
+	/* signal(LineEdit(textEdited)) to slot(打印到Terminal)函數 */
 	void print_terminal(const QString &);
+	/* signal(btn_ABC(clicked)) to slot(MessageBox)函數 */
+	void FoodIsComing(void);
 
 };
 

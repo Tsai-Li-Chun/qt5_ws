@@ -13,6 +13,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QWidget>
 
@@ -24,6 +25,9 @@ public:
     QLabel *label;
     QLineEdit *lineEdit;
     QTextBrowser *textBrowser;
+    QPushButton *btn_A;
+    QPushButton *btn_B;
+    QPushButton *btn_C;
 
     void setupUi(QWidget *Form)
     {
@@ -32,24 +36,36 @@ public:
         Form->resize(600, 300);
         label = new QLabel(Form);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(70, 70, 450, 30));
+        label->setGeometry(QRect(50, 70, 400, 30));
+        label->setStyleSheet(QString::fromUtf8("QLabel{background:#D4D4D4;}"));
         lineEdit = new QLineEdit(Form);
         lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
-        lineEdit->setGeometry(QRect(70, 20, 450, 30));
+        lineEdit->setGeometry(QRect(50, 20, 400, 30));
         textBrowser = new QTextBrowser(Form);
         textBrowser->setObjectName(QString::fromUtf8("textBrowser"));
-        textBrowser->setGeometry(QRect(70, 120, 450, 140));
+        textBrowser->setGeometry(QRect(50, 120, 400, 140));
+        btn_A = new QPushButton(Form);
+        btn_A->setObjectName(QString::fromUtf8("btn_A"));
+        btn_A->setGeometry(QRect(480, 30, 100, 50));
+        btn_B = new QPushButton(Form);
+        btn_B->setObjectName(QString::fromUtf8("btn_B"));
+        btn_B->setGeometry(QRect(480, 110, 100, 50));
+        btn_C = new QPushButton(Form);
+        btn_C->setObjectName(QString::fromUtf8("btn_C"));
+        btn_C->setGeometry(QRect(480, 190, 100, 50));
 
         retranslateUi(Form);
 
-        QMetaObject::connectSlotsByName(Form);
+        // QMetaObject::connectSlotsByName(Form);
     } // setupUi
 
     void retranslateUi(QWidget *Form)
     {
         Form->setWindowTitle(QApplication::translate("Form", "Form", nullptr));
         label->setText(QApplication::translate("Form", "TextLabel", nullptr));
-        textBrowser->setText(QApplication::translate("Form", "TextBrowser", nullptr));
+        btn_A->setText(QApplication::translate("Form", "btn_A", nullptr));
+        btn_B->setText(QApplication::translate("Form", "btn_B", nullptr));
+        btn_C->setText(QApplication::translate("Form", "btn_C", nullptr));
     } // retranslateUi
 
 };
