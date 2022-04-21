@@ -1,5 +1,5 @@
 /** ******************************************************
-	* @file		main.cpp
+	* @file		LineEdit_Label.cpp
 	* @author	Tsai,Li-chun
 	******************************************************
 **	**/
@@ -7,13 +7,10 @@
 
 /* System Includes ------------------------------------------*/
 /* System Includes Begin */
-#include <iostream>
-#include <QApplication>
-#include <QWidget>
 /* System Includes End */
 /* User Includes --------------------------------------------*/
 /* User Includes Begin */
-#include "widget.h"
+#include "LineEdit_Label.hpp"
 /* User Includes End */
 
 /* namespace ------------------------------------------------*/
@@ -46,21 +43,34 @@
 /* Function End */
 
 
-
 /* ---------------------------------------------------------*/
 /* ⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩ Program ⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩ ---------------------------*/
 /* ---------------------------------------------------------*/
 /* Program Begin */
 
-int main(int argc, char **argv)
+/** * @brief 建構涵式
+ 	* @param None
+ 	* @return None
+**	**/
+LineEdit_Label::LineEdit_Label(QWidget *parent) : QWidget(parent)
 {
-    QApplication qt(argc,argv);
+	/* GUI介面啟動設定 */
+	this->setupUi(this);
+	/* 關連signal與slot,qt4版本,按按鈕彈出小視窗 */
+	connect( this->lineEdit, SIGNAL(textEdited(QString)),
+			 this->label, SLOT(setText(QString)) );
+	/* 關連signal與slot,qt5版本,按按鈕彈出小視窗 */
+	// connect( this->lineEdit, &QLineEdit::textEdited,
+	// 		 this->label, &QLabel::setText );
+}
 
-    signal_slot_1 ss1;
-    ss1.show();
+/** * @brief 解建構涵式
+ 	* @param None
+ 	* @return None
+**	**/
+LineEdit_Label::~LineEdit_Label()
+{
 
-    std::cout << qt.exec() << std::endl;
-    return 0;
 }
 
 /* Program End */
@@ -69,4 +79,4 @@ int main(int argc, char **argv)
 /* ---------------------------------------------------------*/
 
 
-/* ***** END OF main.cpp ***** */
+/* ***** END OF LineEdit_Label.cpp ***** */

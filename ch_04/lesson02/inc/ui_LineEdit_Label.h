@@ -1,0 +1,62 @@
+/********************************************************************************
+** Form generated from reading UI file 'ui_LineEdit_Label.ui'
+**
+** Created by: Qt User Interface Compiler version 5.12.8
+**
+** WARNING! All changes made in this file will be lost when recompiling UI file!
+********************************************************************************/
+
+#ifndef UI_LINEEDIT_LABEL_H
+#define UI_LINEEDIT_LABEL_H
+
+#include <QtCore/QVariant>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
+#include <QtWidgets/QTextEdit>
+#include <QtWidgets/QWidget>
+
+QT_BEGIN_NAMESPACE
+
+class Ui_Form
+{
+public:
+    QTextEdit *textEdit;
+    QLabel *label;
+    QLineEdit *lineEdit;
+
+    void setupUi(QWidget *Form)
+    {
+        if (Form->objectName().isEmpty())
+            Form->setObjectName(QString::fromUtf8("Form"));
+        Form->resize(600, 300);
+        textEdit = new QTextEdit(Form);
+        textEdit->setObjectName(QString::fromUtf8("textEdit"));
+        textEdit->setGeometry(QRect(70, 30, 450, 50));
+        label = new QLabel(Form);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setGeometry(QRect(70, 190, 450, 50));
+        lineEdit = new QLineEdit(Form);
+        lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
+        lineEdit->setGeometry(QRect(70, 120, 450, 50));
+
+        retranslateUi(Form);
+
+        // QMetaObject::connectSlotsByName(Form);
+    } // setupUi
+
+    void retranslateUi(QWidget *Form)
+    {
+        Form->setWindowTitle(QApplication::translate("Form", "Form", nullptr));
+        label->setText(QApplication::translate("Form", "TextLabel", nullptr));
+    } // retranslateUi
+
+};
+
+namespace Ui {
+    class Form: public Ui_Form {};
+} // namespace Ui
+
+QT_END_NAMESPACE
+
+#endif // UI_LINEEDIT_LABEL_H
