@@ -46,6 +46,10 @@ public:
 	LineEdit_Label(QWidget *parent = 0);
 	/* 解建構函數 */
 	~LineEdit_Label();
+	
+/* qt特有,slot成員 */
+public slots:
+	void print_terminal(const QString &);
 
 };
 

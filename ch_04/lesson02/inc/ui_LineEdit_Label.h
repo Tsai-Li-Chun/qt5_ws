@@ -13,7 +13,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
-#include <QtWidgets/QTextEdit>
+#include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -21,34 +21,35 @@ QT_BEGIN_NAMESPACE
 class Ui_Form
 {
 public:
-    QTextEdit *textEdit;
     QLabel *label;
     QLineEdit *lineEdit;
+    QTextBrowser *textBrowser;
 
     void setupUi(QWidget *Form)
     {
         if (Form->objectName().isEmpty())
             Form->setObjectName(QString::fromUtf8("Form"));
         Form->resize(600, 300);
-        textEdit = new QTextEdit(Form);
-        textEdit->setObjectName(QString::fromUtf8("textEdit"));
-        textEdit->setGeometry(QRect(70, 30, 450, 50));
         label = new QLabel(Form);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(70, 190, 450, 50));
+        label->setGeometry(QRect(70, 70, 450, 30));
         lineEdit = new QLineEdit(Form);
         lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
-        lineEdit->setGeometry(QRect(70, 120, 450, 50));
+        lineEdit->setGeometry(QRect(70, 20, 450, 30));
+        textBrowser = new QTextBrowser(Form);
+        textBrowser->setObjectName(QString::fromUtf8("textBrowser"));
+        textBrowser->setGeometry(QRect(70, 120, 450, 140));
 
         retranslateUi(Form);
 
-        // QMetaObject::connectSlotsByName(Form);
+        QMetaObject::connectSlotsByName(Form);
     } // setupUi
 
     void retranslateUi(QWidget *Form)
     {
         Form->setWindowTitle(QApplication::translate("Form", "Form", nullptr));
         label->setText(QApplication::translate("Form", "TextLabel", nullptr));
+        textBrowser->setText(QApplication::translate("Form", "TextBrowser", nullptr));
     } // retranslateUi
 
 };
