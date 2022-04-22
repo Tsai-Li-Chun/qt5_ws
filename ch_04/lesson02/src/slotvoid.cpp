@@ -1,5 +1,5 @@
 /** ******************************************************
-	* @file		main.cpp
+	* @file		slotvoid.cpp
 	* @author	Tsai,Li-chun
 	******************************************************
 **	**/
@@ -7,14 +7,10 @@
 
 /* System Includes ------------------------------------------*/
 /* System Includes Begin */
-#include <iostream>
-#include <memory>
-#include <QApplication>
-#include <QObject>
+#include <QMessageBox>
 /* System Includes End */
 /* User Includes --------------------------------------------*/
 /* User Includes Begin */
-#include "LineEdit_Label.hpp"
 #include "slotvoid.hpp"
 /* User Includes End */
 
@@ -54,37 +50,27 @@
 /* ---------------------------------------------------------*/
 /* Program Begin */
 
-/** * @brief  Program entry point.
- 	* @param argc(int) : Number of input parameters
- 	* @param argv(int) : input parameters
- 	* @return (int) Program Error.
+/** * @brief 建構涵式
+ 	* @param None
+ 	* @return None
 **	**/
-int main(int argc, char **argv)
+slotvoid::slotvoid(QWidget *parent) : QWidget(parent)
+{}
+
+/** * @brief 解建構涵式
+ 	* @param None
+ 	* @return None
+**	**/
+slotvoid::~slotvoid()
+{}
+
+/** * @brief customize ReceiveMag Function -- Signal_Slot_test::customize_SendMsg
+ 	* @param None
+ 	* @return None
+**	**/
+void slotvoid::customize_Receive(void)
 {
-	/* 建立qt應用物件 */
-	QApplication qt(argc,argv);
-
-	/* 建立main用qt-top物件 */
-	std::shared_ptr<Signal_Slot_test> SSt 
-		= std::make_shared<Signal_Slot_test>();
-	/* 建立自定義signal&slot物件 */
-	std::shared_ptr<slotvoid> sv
-		= std::make_shared<slotvoid>();
-	// Signal_Slot_test SSt;
-	// slotvoid sv;
-
-	/* link signal&slot */
-	QObject::connect( SSt.get(), &Signal_Slot_test::customize_SendMsg,
-					  sv.get(), &slotvoid::customize_Receive );
-
-	/* 顯示視窗 */
-	SSt->show();
-
-    /* 執行qt應用並顯示執行結果 */
-	std::cout << qt.exec() << std::endl;
-
-	/* main quit */
-	return 0;
+	QMessageBox::information(this, this->tr("Show"), this->tr("slotvoid"));
 }
 
 /* Program End */
@@ -93,4 +79,4 @@ int main(int argc, char **argv)
 /* ---------------------------------------------------------*/
 
 
-/* ***** END OF main.cpp ***** */
+/* ***** END OF slotvoid.cpp ***** */

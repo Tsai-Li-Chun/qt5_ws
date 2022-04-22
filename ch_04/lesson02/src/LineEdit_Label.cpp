@@ -98,6 +98,8 @@ void Signal_Slot_test::btn_connect_enable(void)
 			 this, &Signal_Slot_test::btn_connect_disenable );
 	disconnect( this->btn_connect, &QPushButton::clicked,
 			 this, &Signal_Slot_test::btn_connect_enable );
+	connect( this->btn_C, &QPushButton::clicked,
+			 this, &Signal_Slot_test::customize_SendMsg );
 
 	/* 已啟動signal&slot,將connect按鈕失效 */
 	this->btn_connect->setEnabled(false);
@@ -126,6 +128,8 @@ void Signal_Slot_test::btn_connect_disenable(void)
 			 this, &Signal_Slot_test::btn_connect_enable );
 	disconnect( this->btn_disconnect, &QPushButton::clicked,
 			 this, &Signal_Slot_test::btn_connect_disenable );
+	disconnect( this->btn_C, &QPushButton::clicked,
+			 this, &Signal_Slot_test::customize_SendMsg );
 
 	/* 已關閉signal&slot,將connect按鈕啟動 */
 	this->btn_connect->setEnabled(true);
@@ -155,7 +159,19 @@ void Signal_Slot_test::FoodIsComing(void)
 	qDebug() << signal_source;
 	/* 彈出對應文字的小視窗 */
 	QMessageBox::information( this, this->tr("開門查水表!"), signal_source );
+	// /* 若按下C,發送自定義的signal */
+	// if( signal_source == tr("btn_C") )
+	// 	emit customize_SendMsg();
 }
+
+// /** * @brief customize ReceiveMag Function -- Signal_Slot_test::customize_SendMsg
+//  	* @param None
+//  	* @return None
+// **	**/
+// void Signal_Slot_test::customize_ReceiveMag(void)
+// {
+// 	QMessageBox::information(this, this->tr("Show"));
+// }
 
 /* Program End */
 /* ---------------------------------------------------------*/
