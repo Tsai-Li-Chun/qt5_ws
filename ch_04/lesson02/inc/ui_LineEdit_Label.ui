@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>600</width>
-    <height>300</height>
+    <height>320</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -86,6 +86,32 @@
    </property>
    <property name="text">
     <string>btn_C</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_disconnect">
+   <property name="geometry">
+    <rect>
+     <x>350</x>
+     <y>275</y>
+     <width>100</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>disconnect</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_connect">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>275</y>
+     <width>100</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>connect</string>
    </property>
   </widget>
  </widget>

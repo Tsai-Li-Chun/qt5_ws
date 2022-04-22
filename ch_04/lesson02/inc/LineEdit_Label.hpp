@@ -49,6 +49,10 @@ public:
 	
 /* qt特有,slot成員 */
 public slots:
+	/* 啟動Link-signal&slot函數 */
+	void btn_connect_enable(void);
+	/* 解除Link-signal&slot函數 */
+	void btn_connect_disenable(void);
 	/* signal(LineEdit(textEdited)) to slot(打印到Terminal)函數 */
 	void print_terminal(const QString &);
 	/* signal(btn_ABC(clicked)) to slot(MessageBox)函數 */

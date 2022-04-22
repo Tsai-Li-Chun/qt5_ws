@@ -58,6 +58,24 @@ Signal_Slot_test::Signal_Slot_test(QWidget *parent) : QWidget(parent)
 {
 	/* GUI介面啟動設定 */
 	this->setupUi(this);
+	/* 啟動Link-signal&slot函數 */
+	this->btn_connect_enable(); 
+}
+
+/** * @brief 解建構涵式
+ 	* @param None
+ 	* @return None
+**	**/
+Signal_Slot_test::~Signal_Slot_test()
+{
+}
+
+/** * @brief setup Link-signal&slot -- btn_connect::clicked
+ 	* @param None
+ 	* @return None
+**	**/
+void Signal_Slot_test::btn_connect_enable(void)
+{
 	/* link signal&slot,qt4,按按鈕彈出小視窗 */
 	// connect( this->lineEdit, SIGNAL(textEdited(QString)),
 	// 		 this->label, SLOT(setText(QString)) );
@@ -76,15 +94,43 @@ Signal_Slot_test::Signal_Slot_test(QWidget *parent) : QWidget(parent)
 			 this, &Signal_Slot_test::FoodIsComing );
 	connect( this->btn_C, &QPushButton::clicked,
 			 this, &Signal_Slot_test::FoodIsComing );
-			 
+	connect( this->btn_disconnect, &QPushButton::clicked,
+			 this, &Signal_Slot_test::btn_connect_disenable );
+	disconnect( this->btn_connect, &QPushButton::clicked,
+			 this, &Signal_Slot_test::btn_connect_enable );
+
+	/* 已啟動signal&slot,將connect按鈕失效 */
+	this->btn_connect->setEnabled(false);
+	/* 已啟動signal&slot,將disconnect按鈕啟動 */
+	this->btn_disconnect->setEnabled(true);
 }
 
-/** * @brief 解建構涵式
- 	* @param None
- 	* @return None
-**	**/
-Signal_Slot_test::~Signal_Slot_test()
+void Signal_Slot_test::btn_connect_disenable(void)
 {
+	/* disconnect signal&slot,qt5 */
+	disconnect( this->lineEdit, &QLineEdit::textEdited,
+			 this->label, &QLabel::setText );
+	disconnect( this->lineEdit, &QLineEdit::textEdited,
+			 this->textBrowser, &QTextBrowser::setText );
+	disconnect( this->lineEdit, &QLineEdit::textEdited,
+			 this, &Signal_Slot_test::print_terminal );
+
+	/* disconnect signal&slot,qt5 */
+	disconnect( this->btn_A, &QPushButton::clicked,
+			 this, &Signal_Slot_test::FoodIsComing );
+	disconnect( this->btn_B, &QPushButton::clicked,
+			 this, &Signal_Slot_test::FoodIsComing );
+	disconnect( this->btn_C, &QPushButton::clicked,
+			 this, &Signal_Slot_test::FoodIsComing );
+	connect( this->btn_connect, &QPushButton::clicked,
+			 this, &Signal_Slot_test::btn_connect_enable );
+	disconnect( this->btn_disconnect, &QPushButton::clicked,
+			 this, &Signal_Slot_test::btn_connect_disenable );
+
+	/* 已關閉signal&slot,將connect按鈕啟動 */
+	this->btn_connect->setEnabled(true);
+	/* 已關閉signal&slot,將disconnect按鈕失效 */
+	this->btn_disconnect->setEnabled(false);
 }
 
 /** * @brief slot function -- LineEdit::textEdited
