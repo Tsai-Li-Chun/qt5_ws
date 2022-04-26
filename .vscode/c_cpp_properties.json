@@ -5,6 +5,7 @@
             "includePath": [
                 "${workspaceFolder}/ch_04/lesson01/**",
                 "${workspaceFolder}/ch_04/lesson02/**",
+                "${workspaceFolder}/ch_04/lesson03/**",
                 // "/usr/include/x86_64-linux-gnu/qt5/QtWidgets",
                 "/usr/include/x86_64-linux-gnu/qt5/**"
             ],
