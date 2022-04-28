@@ -59,6 +59,11 @@ public:
 	/* 寫法3:精簡寫法, 讀寫函數交與moc編譯,連在此hpp檔裡宣告都不需要 */
 	Q_PROPERTY(double get_value MEMBER my_value NOTIFY changed_value)
 
+	/* 新增物件(class)的附加訊息 */
+    Q_CLASSINFO("Version", "1.8.7")
+    Q_CLASSINFO("Author", "TsaiLiChun")
+    Q_CLASSINFO("Site", "https://xxxx.edu.cn/xxxx/xxxxxxx/")
+
 	/* 讀nickName函數 */
 	const QString& get_nickName(void);
 	/* 讀count函數 */

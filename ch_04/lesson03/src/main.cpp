@@ -11,6 +11,7 @@
 #include <memory>
 #include <QApplication>
 #include <QDebug>
+#include <QMetaClassInfo>
 /* System Includes End */
 /* User Includes --------------------------------------------*/
 /* User Includes Begin */
@@ -65,6 +66,22 @@ int main(int argc, char **argv)
 
 	/* 建立QT-TopWindows(widget)物件 */
 	std::shared_ptr<my_property> _property = std::make_shared<my_property>();
+
+	/* 建立QT-TopWindows(widget)管理物件 */
+	const QMetaObject *pMO = _property->metaObject();
+	/* 取得QT-TopWindows(widget)基礎資訊 */
+	uint8_t pMO_count = pMO->classInfoCount();
+	/* 依序打印 */
+	for( uint8_t i=0;  i<pMO_count; i++ )
+	{
+		QMetaClassInfo info = pMO->classInfo(i);
+		qDebug() << info.name() << '\t' << info.value();
+	}
+	/* 打印物件名子等資訊 */
+	qDebug() << "Class  Name:" << pMO->className();
+	qDebug() << "Object Name:" << _property->objectName();
+	qDebug()<<_property->inherits("QWidget");
+	qDebug()<<_property->inherits("QLabel");
 
 	/* 使用寫nickName函數設定,並用讀nickName函數取值顯示 */
 	_property->set_nickName("TsaiLiChun");
