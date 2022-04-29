@@ -6,6 +6,7 @@
                 "${workspaceFolder}/ch_04/lesson01/**",
                 "${workspaceFolder}/ch_04/lesson02/**",
                 "${workspaceFolder}/ch_04/lesson03/**",
+                "${workspaceFolder}/ch_05/lesson01/**",
                 // "/usr/include/x86_64-linux-gnu/qt5/QtWidgets",
                 "/usr/include/x86_64-linux-gnu/qt5/**"
             ],
