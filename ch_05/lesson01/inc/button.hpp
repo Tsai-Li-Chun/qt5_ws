@@ -63,10 +63,13 @@ public slots:
 
 /* qt特有,私有slot成員 */
 private slots:
+	/* 各個年齡按鈕所對應的slot函數 */
 	void on_radioButton0to19_toggled(bool);
     void on_radioButton20to39_toggled(bool);
     void on_radioButton40to59_toggled(bool);
     void on_radioButton60to_toggled(bool);
+	/* 彈窗按鈕slot函數 */
+	void on_pushButton_clicked(void);
 };
 
 /* Extern Class End */

@@ -8,6 +8,7 @@
 /* System Includes ------------------------------------------*/
 /* System Includes Begin */
 #include <QDebug>
+#include <QMessageBox>
 /* System Includes End */
 /* User Includes --------------------------------------------*/
 /* User Includes Begin */
@@ -84,6 +85,8 @@ button::button(QWidget *parent):QWidget(parent)
 					 this,	  &button::on_radioButton40to59_toggled);
 	connect(radioButton60to, &QRadioButton::toggled, 
 					 this,	  &button::on_radioButton60to_toggled);
+	connect(pushButton, &QPushButton::clicked, 
+					 this,	  &button::on_pushButton_clicked);
 }
 /** * @brief 解建構涵式
  	* @param None
@@ -152,6 +155,10 @@ void button::on_radioButton0to19_toggled(bool checked)
         qDebug()<<tr("不是 0-19");
     }
 }
+/** * @brief button 20-39 age slot function -- ButtonGroup::buttonclicked
+ 	* @param int(id) 群組內按鈕編號
+ 	* @return None
+**	**/
 void button::on_radioButton20to39_toggled(bool checked)
 {
     if(checked)
@@ -163,6 +170,10 @@ void button::on_radioButton20to39_toggled(bool checked)
         qDebug()<<tr("不是 20-39");
     }
 }
+/** * @brief button 40-59 age slot function -- ButtonGroup::buttonclicked
+ 	* @param int(id) 群組內按鈕編號
+ 	* @return None
+**	**/
 void button::on_radioButton40to59_toggled(bool checked)
 {
     if(checked)
@@ -174,6 +185,10 @@ void button::on_radioButton40to59_toggled(bool checked)
         qDebug()<<tr("不是 40-59");
     }
 }
+/** * @brief button 60- age slot function -- ButtonGroup::buttonclicked
+ 	* @param int(id) 群組內按鈕編號
+ 	* @return None
+**	**/
 void button::on_radioButton60to_toggled(bool checked)
 {
     if(checked)
@@ -184,6 +199,58 @@ void button::on_radioButton60to_toggled(bool checked)
     {
         qDebug()<<tr("不是 60-");
     }
+}
+
+/** * @brief pushButton slot function -- pushButton::clicked
+ 	* @param None
+ 	* @return None
+**	**/
+void button::on_pushButton_clicked(void)
+{
+    /* 結果字串變數 */
+    QString strResult;
+
+    /* 性別分組,獲取選中按鈕ID */
+    int nGenderID = _bG_gender->checkedId();
+    switch (nGenderID)
+	{
+		case 1:
+			strResult += tr("性別:男\r\n");break;
+		case 2:
+			strResult += tr("性別:女\r\n");break;
+		case 3:
+			strResult += tr("性別:阿福\r\n");break;
+		default:
+			strResult += tr("性別:未選中\r\n");break;
+    }
+
+    /* 狀態分組,獲取選中按鈕ID */
+    int nStatusID = _bG_status->checkedId();
+    switch (nStatusID) {
+    case 1:
+        strResult += tr("狀態:棒棒噠\r\n");break;
+    case 2:
+        strResult += tr("狀態:萌萌噠\r\n");break;
+    case 3:
+        strResult += tr("狀態:該吃藥囉\r\n");break;
+    default:
+        strResult += tr("狀態:未選中\r\n");break;
+    }
+
+    /* 年齡分組,分別判斷各個按鈕 */
+    if( this->radioButton0to19->isChecked() )
+        strResult += tr("年齡段:0-19\r\n");
+    else if( this->radioButton20to39->isChecked() )
+        strResult += tr("年齡段:20-39\r\n");
+    else if( this->radioButton40to59->isChecked() )
+        strResult += tr("年齡段:40-59\r\n");
+    else if( this->radioButton60to->isChecked() )
+        strResult += tr("年齡段:60以上\r\n");
+    else
+        strResult += tr("年齡段:未選中\r\n");
+
+    /* 彈窗顯示 */
+    QMessageBox::information(this, tr("綜合訊息"), strResult);
 }
 
 /* Program End */

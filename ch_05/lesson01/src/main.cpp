@@ -59,13 +59,19 @@
 **	**/
 int main(int argc, char **argv)
 {
+	/* 建立qt應用物件 */
 	QApplication qt(argc,argv);
 
+	/* 建立QT-TopWindows(widget)物件 */
 	std::shared_ptr<button> _button = 
 		std::make_shared<button>();
+	/* 顯示視窗 */
 	_button->show();
 
+    /* 執行qt應用並顯示執行結果 */
 	std::cout << qt.exec() << std::endl;
+	
+	/* main quit */
 	return 0;
 }
 
