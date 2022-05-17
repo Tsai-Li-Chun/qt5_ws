@@ -204,7 +204,7 @@ void button::on_radioButton60to_toggled(bool checked)
 /** * @brief pushButton slot function -- pushButton::clicked
  	* @param None
  	* @return None
-**	**/
+**	**/ 
 void button::on_pushButton_clicked(void)
 {
     /* 結果字串變數 */
