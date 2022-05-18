@@ -63,7 +63,6 @@ check_commandlink_button::check_commandlink_button(QWidget *parent):QWidget(pare
 {
 	/* 初始化視窗內物件 */
 	this->setupUi(this);
-
 	this->checkBoxTristate->setTristate(true);
 }
 /** * @brief 解建構涵式

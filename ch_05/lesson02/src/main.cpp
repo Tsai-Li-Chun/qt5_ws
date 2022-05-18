@@ -51,7 +51,6 @@
 /* ⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩ Program ⇩⇩⇩⇩⇩⇩⇩⇩⇩⇩ ---------------------------*/
 /* ---------------------------------------------------------*/
 /* Program Begin */
-
 /** * @brief  Program entry point.
  	* @param argc(int) : Number of input parameters
  	* @param argv(int) : input parameters
