@@ -47,8 +47,29 @@ public:
 	/* 解建構函數 */
 	~check_commandlink_button();
 
+	/* 檢查勾選狀態函數 */
+	void checkHobbies(void);
+
 /* qt特有,公共slot成員 */
 public slots:
+
+/* qt特有,私有slot成員 */
+private slots:
+	/* 6個興趣勾選slot函數 */
+	void on_check_A1_toggled(bool);
+	void on_check_A2_toggled(bool);
+	void on_check_A3_toggled(bool);
+	void on_check_A4_toggled(bool);
+	void on_check_A5_toggled(bool);
+	void on_check_A6_toggled(bool);
+	/* 3態選項勾選slot函數 */
+	void on_checkBoxTristate_stateChanged(int);
+	/* 彈窗顯示按鈕slot函數 */
+	void on_PushWindows_clicked(void);
+	/* 命令按鈕(開啟文件)slot函數 */
+	void on_CommandLink_OpenFile_clicked(void);
+	/* 命令按鈕(開啟網站)slot函數 */
+	void on_CommandLink_OpenWeb_clicked(void);
 
 };
 
