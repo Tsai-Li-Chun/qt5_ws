@@ -39,8 +39,16 @@ class login_windows : public QWidget, public Ui::Form_login
 
 /* 私有成員 */
 private:
+	/* 真user內容 */
+	QString true_User;
+	/* 輸入的user內容 */
 	QString my_strUser;
+	/* 真password內容 */
+	QByteArray true_PasswordHash;
+	/* 輸入的password內容 */
 	QByteArray my_strPasswordHash;
+	/* User & Password 是否正確旗標 */
+	bool login_ok = false;
 
 /* 公共成員 */
 public:
