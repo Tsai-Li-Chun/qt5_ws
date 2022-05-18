@@ -13,7 +13,7 @@
 /* System Includes End */
 /* User Includes --------------------------------------------*/
 /* User Includes Begin */
-#include "check_commandlink_button.hpp"
+#include "login_windows.hpp"
 /* User Includes End */
 
 /* namespace ------------------------------------------------*/
@@ -63,10 +63,10 @@ int main(int argc, char **argv)
 	QApplication qt(argc,argv);
 
 	/* 建立QT-TopWindows(widget)物件 */
-	std::shared_ptr<check_commandlink_button> ccb = 
-		std::make_shared<check_commandlink_button>();
+	std::shared_ptr<login_windows> lw = 
+		std::make_shared<login_windows>();
 	/* 顯示視窗 */
-	ccb->show();
+	lw->show();
 
     /* 執行qt應用並顯示執行結果 */
 	qDebug() << qt.exec();
