@@ -13,6 +13,7 @@
 #include <QRegExp>
 #include <QRegExpValidator>
 #include <QIntValidator>
+#include <QCompleter>
 /* System Includes End */
 /* User Includes --------------------------------------------*/
 /* User Includes Begin */
@@ -79,13 +80,40 @@ login_windows::login_windows(QWidget *parent) : QWidget(parent)
 	/* 設置MAC輸入模板 */
 	this->lineEdit_MAC->setInputMask("HH:HH:HH:HH:HH:HH");
 	/* 設置IP輸入模板 */
-	QRegExp re("^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}"
+	QRegExp re_IP("^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}"
                "(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$" );
-	QRegExpValidator *reVali = new QRegExpValidator(re);
+	QRegExpValidator *reVali = new QRegExpValidator(re_IP);
 	this->lineEdit_IP->setValidator(reVali);
 	/* 設置Port輸入模板 */
 	QIntValidator *intVali = new QIntValidator(0, 65535);
 	this->lineEdit_Port->setValidator(intVali);
+
+	/* 設置lineEdit_DayOfWeek輸入模板 */
+	QRegExp re_DayOfWeek("^[a-za-z]+$");
+	QRegExpValidator *reDoW = new QRegExpValidator(re_DayOfWeek);
+	this->lineEdit_DayOfWeek->setValidator(reDoW);
+	/* 建立星期單字列表 */
+    QStringList listDayOfWeek;
+    listDayOfWeek <<"Monday" <<"Tuesday" <<"Wednesday"
+                  <<"Thursday" <<"Friday" <<"Saturday" <<"Sunday";
+    /* 建立星期自動補全器 */
+    QCompleter *cpDayOfWeek = new QCompleter(listDayOfWeek);
+    /* 設置星期自動補全器不小寫不敏感 */
+    cpDayOfWeek->setCaseSensitivity(Qt::CaseInsensitive);
+    /* 指定lineEdit_DayOfWeek欄位使用星期自動補全器 */
+    this->lineEdit_DayOfWeek->setCompleter(cpDayOfWeek);
+
+	/* 設置lineEdit_Year輸入模板 */
+	QIntValidator *intYear = new QIntValidator(1880, 3000);
+	this->lineEdit_Year->setValidator(intYear);
+	/* 建立年份列表 */
+    QStringList listYear;
+    listYear<<"2016" <<"2015" <<"2008" <<"2006" <<"1999" <<"1991";
+    /* 建立年份自動補全器 */
+    QCompleter *cpYear = new QCompleter(listYear);
+    /* 指定lineEdit_Year欄位使用年份自動補全器 */
+    this->lineEdit_Year->setCompleter(cpYear);
+
 }
 /** * @brief 解建構涵式
  	* @param None
@@ -174,6 +202,22 @@ void login_windows::on_lineEdit_IP_textChanged(const QString &str)
  	* @return None
 **	**/
 void login_windows::on_lineEdit_Port_textChanged(const QString &str)
+{
+	qDebug() << str;
+}
+/** * @brief 編輯DayOfWeek欄位觸發的slot函數
+ 	* @param const_QString& lineEdit_DayOfWeek內容
+ 	* @return None
+**	**/
+void login_windows::on_lineEdit_DayOfWeek_textChanged(const QString &str)
+{
+	qDebug() << str;
+}
+/** * @brief 編輯Year欄位觸發的slot函數
+ 	* @param const_QString& lineEdit_Year內容
+ 	* @return None
+**	**/
+void login_windows::on_lineEdit_Year_textChanged(const QString &str)
 {
 	qDebug() << str;
 }

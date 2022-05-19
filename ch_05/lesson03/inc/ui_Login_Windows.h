@@ -33,6 +33,10 @@ public:
     QLineEdit *lineEdit_MAC;
     QLineEdit *lineEdit_IP;
     QLineEdit *lineEdit_Port;
+    QLabel *label_DayOfWeek;
+    QLabel *label_Year;
+    QLineEdit *lineEdit_DayOfWeek;
+    QLineEdit *lineEdit_Year;
 
     void setupUi(QWidget *Form_login)
     {
@@ -84,10 +88,26 @@ public:
         lineEdit_Port = new QLineEdit(Form_login);
         lineEdit_Port->setObjectName(QString::fromUtf8("lineEdit_Port"));
         lineEdit_Port->setGeometry(QRect(410, 120, 150, 25));
+        label_DayOfWeek = new QLabel(Form_login);
+        label_DayOfWeek->setObjectName(QString::fromUtf8("label_DayOfWeek"));
+        label_DayOfWeek->setGeometry(QRect(315, 180, 85, 25));
+        label_DayOfWeek->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        label_Year = new QLabel(Form_login);
+        label_Year->setObjectName(QString::fromUtf8("label_Year"));
+        label_Year->setGeometry(QRect(315, 220, 85, 25));
+        label_Year->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        lineEdit_DayOfWeek = new QLineEdit(Form_login);
+        lineEdit_DayOfWeek->setObjectName(QString::fromUtf8("lineEdit_DayOfWeek"));
+        lineEdit_DayOfWeek->setGeometry(QRect(420, 180, 150, 25));
+        lineEdit_Year = new QLineEdit(Form_login);
+        lineEdit_Year->setObjectName(QString::fromUtf8("lineEdit_Year"));
+        lineEdit_Year->setGeometry(QRect(420, 220, 150, 25));
 #ifndef QT_NO_SHORTCUT
         label_MAC->setBuddy(lineEdit_MAC);
         label_IP->setBuddy(lineEdit_IP);
         label_Port->setBuddy(lineEdit_Port);
+        label_DayOfWeek->setBuddy(lineEdit_DayOfWeek);
+        label_Year->setBuddy(lineEdit_Year);
 #endif // QT_NO_SHORTCUT
 
         retranslateUi(Form_login);
@@ -105,6 +125,8 @@ public:
         label_MAC->setText(QApplication::translate("Form_login", "&MAC", nullptr));
         label_IP->setText(QApplication::translate("Form_login", "&IP", nullptr));
         label_Port->setText(QApplication::translate("Form_login", "&Port", nullptr));
+        label_DayOfWeek->setText(QApplication::translate("Form_login", "&DayOfWeek", nullptr));
+        label_Year->setText(QApplication::translate("Form_login", "&Year", nullptr));
     } // retranslateUi
 
 };
