@@ -53,6 +53,9 @@
         "typeinfo": "cpp",
         "variant": "cpp",
         "bit": "cpp",
-        "fstream": "cpp"
+        "fstream": "cpp",
+        "qintvalidator": "cpp",
+        "qregexpvalidator": "cpp",
+        "qcryptographichash": "cpp"
     }
 }

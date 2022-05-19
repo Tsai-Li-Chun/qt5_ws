@@ -59,6 +59,10 @@ public:
 
 /* qt特有,私有slot成員 */
 private slots:
+	/* 編輯MAC欄位觸發的slot函數 */
+	void on_lineEdit_MAC_textChanged(const QString&);
+	void on_lineEdit_IP_textChanged(const QString&);
+	void on_lineEdit_Port_textChanged(const QString&);
 
 /* qt特有,公共slot成員 */
 public slots:

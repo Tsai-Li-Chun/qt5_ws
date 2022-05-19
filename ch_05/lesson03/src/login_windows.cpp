@@ -10,6 +10,9 @@
 #include <QDebug>
 #include <QMessageBox>
 #include <QCryptographicHash>
+#include <QRegExp>
+#include <QRegExpValidator>
+#include <QIntValidator>
 /* System Includes End */
 /* User Includes --------------------------------------------*/
 /* User Includes Begin */
@@ -72,6 +75,17 @@ login_windows::login_windows(QWidget *parent) : QWidget(parent)
 	/* 打印User&Password,debug用 */
     qDebug() << true_User;
     qDebug() << true_PasswordHash;
+
+	/* 設置MAC輸入模板 */
+	this->lineEdit_MAC->setInputMask("HH:HH:HH:HH:HH:HH");
+	/* 設置IP輸入模板 */
+	QRegExp re("^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}"
+               "(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$" );
+	QRegExpValidator *reVali = new QRegExpValidator(re);
+	this->lineEdit_IP->setValidator(reVali);
+	/* 設置Port輸入模板 */
+	QIntValidator *intVali = new QIntValidator(0, 65535);
+	this->lineEdit_Port->setValidator(intVali);
 }
 /** * @brief 解建構涵式
  	* @param None
@@ -138,6 +152,32 @@ void login_windows::on_pushButton_exit_clicked(void)
 {	/* 關閉視窗 */
 	this->close();
 }
+
+/** * @brief 編輯MAC欄位觸發的slot函數
+ 	* @param const_QString& lineEdit_MAC內容
+ 	* @return None
+**	**/
+void login_windows::on_lineEdit_MAC_textChanged(const QString &str)
+{
+	qDebug() << str;
+}
+/** * @brief 編輯IP欄位觸發的slot函數
+ 	* @param const_QString& lineEdit_IP內容
+ 	* @return None
+**	**/
+void login_windows::on_lineEdit_IP_textChanged(const QString &str)
+{
+	qDebug() << str;
+}
+/** * @brief 編輯Port欄位觸發的slot函數
+ 	* @param const_QString& lineEdit_Port內容
+ 	* @return None
+**	**/
+void login_windows::on_lineEdit_Port_textChanged(const QString &str)
+{
+	qDebug() << str;
+}
+
 
 /* Program End */
 /* ---------------------------------------------------------*/
