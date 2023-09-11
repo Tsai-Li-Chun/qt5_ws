@@ -1,2 +1,4 @@
-/**/**/build/*.*
-/**/**/build/Makefile
+/**/**/build/*.stash
+/**/**/build/*.o
+/**/**/build/*.h
+/**/**/build/*.cpp
