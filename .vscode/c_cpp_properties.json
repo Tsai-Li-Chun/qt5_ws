@@ -10,7 +10,7 @@
                 "${workspaceFolder}/ch_05/lesson02/inc",
                 "${workspaceFolder}/ch_05/lesson03/inc",
                 "${workspaceFolder}/ch_05/lesson04/inc",
-                "${workspaceFolder}/ch_06/lesson1/inc",
+                "${workspaceFolder}/ch_06/lesson1/inc/**",
                 "/usr/include/x86_64-linux-gnu/qt5/**",
                 "/usr/include/x86_64-linux-gnu/qt5/QtWidgets"
             ],

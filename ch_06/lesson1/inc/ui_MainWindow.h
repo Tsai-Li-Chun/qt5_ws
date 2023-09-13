@@ -40,13 +40,14 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 400, 28));
+        menubar->setGeometry(QRect(0, 0, 400, 20));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
         MainWindow->setStatusBar(statusbar);
 
         retranslateUi(MainWindow);
+        QObject::connect(pushButton, SIGNAL(clicked()), MainWindow, SLOT(close()));
 
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi
